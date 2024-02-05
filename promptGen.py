@@ -21,9 +21,7 @@ def getPrompt(summary,colors):
         frequency_penalty=0,
         presence_penalty=0
     )
-    # print(response)
     prompt = response.choices[0].message.content
-    print(prompt)
     content = prompt
     if prompt.startswith("Prompt:"):
         content = prompt.split("Prompt:")[1].strip()
