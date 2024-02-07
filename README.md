@@ -4,13 +4,14 @@
 ## **1. Introduction**
 
 This document is an explanation of the project Stable Diffused Branded Qr, this project is an experimental project with an aim to automate the diffusion prompt that is needed to form the diffused images.
+
 [Google Doc](https://docs.google.com/document/d/1rnjQ2Kh-AZnMhBUtN9daZyCuXjE9Ov8yp6p-eWh9KHA/edit?usp=sharing).
 
 
 ### **1.1 Purpose**
 
 
-### The aim of this project is to generate a branded qr that is related to the website it is redirecting. Problem that is being solved with this project is automation of diffusion prompt generation that is used to generate diffused qr.
+The aim of this project is to generate a branded qr that is related to the website it is redirecting. Problem that is being solved with this project is automation of diffusion prompt generation that is used to generate diffused qr.
 
 
 ### **1.2 Scope**
