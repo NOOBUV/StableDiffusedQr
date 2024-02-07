@@ -30,4 +30,5 @@ def getLogoColors(url):
         colors = [closest_color(palette[i]) for i in range(5)]
     except Exception:
         pass
+    print(colors)
     return colors
