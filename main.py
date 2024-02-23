@@ -1,4 +1,3 @@
-import gradio as gr
 from summarize import summarize
 from getLogo import getLogoColors
 from promptGen import getPrompt
@@ -9,11 +8,9 @@ def Url(url):
     logoColors = getLogoColors(url) 
     prompt = getPrompt(summary,logoColors)
     qr_codes = generate(url, prompt)
-    return qr_codes
+    return summary, logoColors, prompt, qr_codes[0], qr_codes[1], qr_codes[2], qr_codes[3]
 
-demo = gr.Interface(
-        fn = Url,
-        inputs = ["text"],
-        outputs = ["image","image","image","image"],
-)
-demo.launch()
+
+images = Url("https://www.google.com")
+
+print(images)
