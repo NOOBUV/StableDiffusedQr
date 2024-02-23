@@ -5,3 +5,6 @@ __pycache__/promptGen.cpython-312.pyc
 __pycache__/summarize.cpython-312.pyc
 __pycache__/Instructions.cpython-312.pyc
 uniqode.py
+qr-env/
+qr-env2/
+__pycache__/
