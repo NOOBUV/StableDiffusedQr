@@ -33,5 +33,5 @@ def summarize(url):
     # below step will find summary for all splitted document and will merge in one
     map_reduce_chain = load_summarize_chain(llm, chain_type = "map_reduce")
     output = map_reduce_chain.run(docs)
-    print(output)
+    print("\nsummary: ", output,end="\n")
     return output
