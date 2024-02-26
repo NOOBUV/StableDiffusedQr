@@ -15,7 +15,8 @@ def closest_color(rgb):
             differences[sum([(r - rgb[0]) ** 2,
                             (g - rgb[1]) ** 2,
                             (b - rgb[2]) ** 2])] = color_name
-        return differences[min(differences.keys())]
+        color = differences[min(differences.keys())]
+        return color if color != 'tomato' else 'tomato-red'
 
 def get_image_from_url(image_url):
     response = requests.get("https://logo.clearbit.com/" + image_url)

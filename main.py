@@ -2,15 +2,18 @@ from summarize import summarize
 from getLogo import getLogoColors
 from promptGen import getPrompt
 from diffuse import generate
+from urllib.parse import urlparse
 
 def Url(url):
-    summary = summarize(url)
-    logoColors = getLogoColors(url) 
+    urlBase = 'https://' + urlparse(url).netloc
+    print(urlBase)
+    summary = summarize(urlBase)
+    logoColors = getLogoColors(urlBase) 
     prompt = getPrompt(summary,logoColors)
-    qr_codes = generate(url, prompt)
+    qr_codes = generate(urlBase, prompt)
     return summary, logoColors, prompt, qr_codes[0], qr_codes[1], qr_codes[2], qr_codes[3]
 
 
-images = Url("https://www.google.com")
+(summary, colors, prompt, *qrcodes) = Url("https://jkawfindia.in/index.php/news/")
 
-print(images)
+print(qrcodes)

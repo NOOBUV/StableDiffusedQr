@@ -1,6 +1,8 @@
 import replicate
+import os
 
 def generate(url, prompt):
+    os.environ['REPLICATE_API_TOKEN'] = 'r8_fJWzImzA3bTFJjgMUBoLQnq8NGioYhI0u3oAA'
     output = replicate.run(
         "qr2ai/qr2ai:f87bcd6dd6dc09e3e47756acd164fe0616a70d3059cf542a847579d670aaaa68",
         input={
