@@ -1,22 +1,18 @@
 import requests
 import os
-from dotenv import load_dotenv
 
-load_dotenv()
-
-def uniqode(url):
-    uniqodeUrl = requests.post(url="https://q.api.beaconstac.com/api/2.0/qrcodes/",
-                               headers = {
-                                   "Authorization": f"Token {os.getenv("AUTH_TOKEN")}"
-                               },
-                               json = {
-                                    "name": "Custom URL",
-                                    "organization": "24558",
-                                    "qr_type": 2,
-                                    "campaign": {
-                                        "content_type": 1,
-                                        "custom_url": url
-                                    },
-                                })
-    print(uniqodeUrl.content.url)
-uniqode("https://www.google.com")
+def get_shorten_url(url):
+    json = {
+        "name": "Custom URL",
+        "organization": "25635",
+        "qr_type": 2,  
+        "campaign": {
+            "content_type": 1,
+            "custom_url": url
+        }
+    }
+    headers = {
+        "Authorization": f"Token {os.getenv("AUTH_TOKEN")}"
+        }
+    response = requests.post("https://q.api.beaconstac.com/api/2.0/qrcodes/",headers = headers,json = json)
+    return response.json()['url']

@@ -26,5 +26,5 @@ def getPrompt(summary,colors):
     content = prompt
     if prompt.startswith("Prompt:"):
         content = prompt.split("Prompt:")[1].strip()
-    print("prompt: ", content)
+    # print("prompt: ", content)
     return content

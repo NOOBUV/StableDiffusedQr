@@ -22,16 +22,19 @@ def summarize(url):
         chunk_overlap = chunk_overlap,
         length_function = len,
     )
-    texts = text_splitter.split_text(data[0].page_content)
+    if len(data) > 0:
+        texts = text_splitter.split_text(data[0].page_content)
 
-    # converting content to document objects
-    docs = [Document(page_content = t) for t in texts[:]]
-    
-    openai.api_key = os.getenv('OPENAI_API_KEY')
-    llm = OpenAI(temperature = 0, openai_api_key = openai.api_key)
+        # converting content to document objects
+        docs = [Document(page_content = t) for t in texts[:]]
+        
+        openai.api_key = os.getenv('OPENAI_API_KEY')
+        llm = OpenAI(temperature = 0, openai_api_key = openai.api_key)
 
-    # below step will find summary for all splitted document and will merge in one
-    map_reduce_chain = load_summarize_chain(llm, chain_type = "map_reduce")
-    output = map_reduce_chain.invoke(docs)['output_text']
-    print("\nsummary: ", output,end="\n")
-    return output
+        # below step will find summary for all splitted document and will merge in one
+        map_reduce_chain = load_summarize_chain(llm, chain_type = "map_reduce")
+        output = map_reduce_chain.invoke(docs)['output_text']
+        # print("\nsummary: ", output,end="\n")
+        return output
+    return "summary about a website"
+

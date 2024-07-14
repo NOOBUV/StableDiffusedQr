@@ -2,7 +2,9 @@ import replicate
 import os
 
 def generate(url, prompt):
-    os.environ['REPLICATE_API_TOKEN'] = 'r8_fJWzImzA3bTFJjgMUBoLQnq8NGioYhI0u3oAA'
+    os.environ['REPLICATE_API_TOKEN'] = 'Set replicate api token here'
+    # print("not breaking before running replicate")
+    
     output = replicate.run(
         "qr2ai/qr2ai:f87bcd6dd6dc09e3e47756acd164fe0616a70d3059cf542a847579d670aaaa68",
         input={
@@ -17,5 +19,7 @@ def generate(url, prompt):
             "negative_prompt": "ugly, disfigured, low quality, blurry"
         }
     )
+    # print("not breaking after replicate")
+    # print("output")
     # print(output)
     return output

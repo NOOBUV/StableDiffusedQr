@@ -19,7 +19,7 @@ def closest_color(rgb):
         return color if color != 'tomato' else 'tomato-red'
 
 def get_image_from_url(image_url):
-    response = requests.get("https://logo.clearbit.com/" + image_url)
+    response = requests.get("https://www.google.com/s2/favicons?sz=128&domain_url=" + image_url)
     return BytesIO(response.content)
 
 def getLogoColors(url):
@@ -31,5 +31,5 @@ def getLogoColors(url):
         colors = [closest_color(palette[i]) for i in range(5)]
     except Exception:
         pass
-    print("colors:", colors)
+    # print("colors:", colors)
     return colors
